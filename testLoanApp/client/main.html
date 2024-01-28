@@ -1,0 +1,44 @@
+<head>
+  <title>Loan App</title>
+</head>
+
+<body>
+  {{> register}}
+  {{> dashboard}}
+  
+  <template name="register">
+    <form>
+      <label for="email">Email:</label>
+      <input type="email" name="email" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required>
+      <br>
+      <label for="role">Role:</label>
+      <select name="role" required>
+        <option value="admin">Admin</option>
+        <option value="borrower">Borrower</option>
+        <option value="lender">Lender</option>
+      </select>
+      <br>
+      <button type="submit">Register</button>
+    </form>
+  </template>
+
+  <template name="dashboard">
+    {{#if isAdmin}}
+      <h1>Admin Dashboard</h1>
+      <!-- Add admin dashboard content here -->
+    {{/if}}
+
+    {{#if isBorrower}}
+      <h1>Borrower Dashboard</h1>
+      <!-- Add borrower dashboard content here -->
+    {{/if}}
+
+    {{#if isLender}}
+      <h1>Lender Dashboard</h1>
+      <!-- Add lender dashboard content here -->
+    {{/if}}
+  </template>
+</body>
